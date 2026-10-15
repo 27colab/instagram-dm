@@ -1,0 +1,29 @@
+{
+  "name": "@27colab/instagram-dm",
+  "version": "0.1.0",
+  "description": "Typed building blocks for Instagram DM bots: webhook verification, event parsing, Business Login OAuth, a Send API client with 24-hour window rules, and a fake Graph API for tests.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Jesus Vasquez",
+  "keywords": ["instagram", "messaging", "webhook", "meta", "graph-api", "chatbot", "typescript"],
+  "engines": { "node": ">=20" },
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+    "./testing": { "types": "./dist/testing/index.d.ts", "import": "./dist/testing/index.js" }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}
